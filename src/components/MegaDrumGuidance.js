@@ -84,7 +84,7 @@ ${config.recommendations.setup.map(rec => `• ${rec}`).join('\n')}`;
   };
 
   return (
-    <Card bg="dark" text="light">
+    <Card bg="dark" text="light"  data-bs-theme="dark">
       <Card.Body>
         <div className="d-flex justify-content-between align-items-center mb-3">
           <Card.Title>MegaDrum Configuration</Card.Title>
@@ -127,7 +127,7 @@ ${config.recommendations.setup.map(rec => `• ${rec}`).join('\n')}`;
             <Accordion.Header>
               <BsGear className="me-2" /> Core Settings
             </Accordion.Header>
-            <Accordion.Body className="bg-dark">
+            <Accordion.Body className="bg-dark text-light">
               <Row>
                 <Col md={4}>
                   <Card bg="secondary" className="mb-2">
@@ -170,7 +170,7 @@ ${config.recommendations.setup.map(rec => `• ${rec}`).join('\n')}`;
             <Accordion.Header>
               <BsClock className="me-2" /> Timing Settings
             </Accordion.Header>
-            <Accordion.Body className="bg-dark">
+            <Accordion.Body className="bg-dark text-light">
               <Row>
                 <Col md={3}>
                   <Card bg="secondary" className="mb-2">

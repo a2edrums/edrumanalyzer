@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Navbar } from 'react-bootstrap';
 import { BsSoundwave } from 'react-icons/bs';
+import logo from '../logo.png';
 
 const Layout = ({ children }) => {
   return (
@@ -17,6 +18,11 @@ const Layout = ({ children }) => {
       <Container className="py-4">
         {children}
       </Container>
+
+      <div className="text-center mt-4">
+        <p className="mb-2">powered by:</p>
+        <a href="https://a2edrums.com" target="_blank" rel="noreferrer"><img alt="logo" src={logo} /></a>
+      </div>
     </div>
   );
 };
