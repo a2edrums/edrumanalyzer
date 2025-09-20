@@ -65,6 +65,7 @@ function App() {
                   onRecordingChange={handleRecordingChange}
                   onClear={handleClear}
                   isConnected={isConnected}
+                  audioData={audioData}
                 />
               </div>
             </Card.Body>

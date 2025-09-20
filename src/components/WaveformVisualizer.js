@@ -28,6 +28,36 @@ const WaveformVisualizer = ({ isRecording, onAudioData }) => {
         ctx.fillStyle = '#1a1a1a';
         ctx.fillRect(0, 0, width, height);
         
+        // Draw grid lines
+        ctx.strokeStyle = '#333';
+        ctx.lineWidth = 1;
+        
+        // Y-axis markers (amplitude)
+        for (let i = 0; i <= 4; i++) {
+          const y = (height / 4) * i;
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(width, y);
+          ctx.stroke();
+        }
+        
+        // X-axis markers (time)
+        for (let i = 0; i <= 8; i++) {
+          const x = (width / 8) * i;
+          ctx.beginPath();
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, height);
+          ctx.stroke();
+        }
+        
+        // Draw center line
+        ctx.strokeStyle = '#555';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, height / 2);
+        ctx.lineTo(width, height / 2);
+        ctx.stroke();
+        
         // Draw waveform
         ctx.strokeStyle = '#00ff00';
         ctx.lineWidth = 2;

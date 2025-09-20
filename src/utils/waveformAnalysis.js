@@ -81,6 +81,23 @@ export const estimateNoiseFloor = (audioData) => {
   return noiseFloorSamples.reduce((sum, val) => sum + val, 0) / noiseFloorSamples.length;
 };
 
+export const detectDrumStrike = (audioData, threshold = 0.4) => {
+  const normalizedData = audioData.map(val => Math.abs((val - 128) / 128));
+  const maxAmplitude = Math.max(...normalizedData);
+  
+  return maxAmplitude > threshold;
+};
+
+export const isolateStrike = (audioBuffer, strikeIndex, sampleRate = 44100) => {
+  const preStrikeSamples = Math.floor(sampleRate * 0.05); // 50ms before
+  const postStrikeSamples = Math.floor(sampleRate * 0.5);  // 500ms after
+  
+  const startIndex = Math.max(0, strikeIndex - preStrikeSamples);
+  const endIndex = Math.min(audioBuffer.length, strikeIndex + postStrikeSamples);
+  
+  return audioBuffer.slice(startIndex, endIndex);
+};
+
 export const analyzeWaveform = (audioData) => {
   if (!audioData || audioData.length === 0) {
     return null;
